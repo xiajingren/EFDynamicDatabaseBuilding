@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace XHZNL.EFDynamicDatabaseBuilding.MasterEntity
 {
-    [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))] //sqlserver时不需要这个
+    //[DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))] //使用mysql时需要这个
     public class MasterDBContext : DbContext
     {
         public MasterDBContext() : base("name=MasterDB")

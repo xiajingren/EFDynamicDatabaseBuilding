@@ -19,7 +19,11 @@ namespace XHZNL.EFDynamicDatabaseBuilding.BusinessEntity.Services
             try
             {
                 //mysql连接字符串
-                var connectionString = $"Data Source={AppConfig.DB_DataSource};port={AppConfig.DB_Port};Initial Catalog={CommonHelper.Instance.GetCurrentDBName()};user id={AppConfig.DB_UserID};password={AppConfig.DB_Password};";
+                //var connectionString = $"Data Source={AppConfig.DB_DataSource};Port={AppConfig.DB_Port};Initial Catalog={CommonHelper.Instance.GetCurrentDBName()};User ID={AppConfig.DB_UserID};Password={AppConfig.DB_Password};";
+
+                //sqlserver连接字符串
+                var connectionString = $"Data Source={AppConfig.DB_DataSource},{AppConfig.DB_Port};Initial Catalog={CommonHelper.Instance.GetCurrentDBName()};User ID={AppConfig.DB_UserID};Password={AppConfig.DB_Password};";
+
                 var context = new BusinessDBContext(connectionString);
 
                 if (!context.Database.Exists())

@@ -10,7 +10,7 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            SetSqlGenerator("MySql.Data.MySqlClient", new MySql.Data.Entity.MySqlMigrationSqlGenerator());//sqlserver时不需要这个
+            //SetSqlGenerator("MySql.Data.MySqlClient", new MySql.Data.Entity.MySqlMigrationSqlGenerator());//使用mysql时需要这个
         }
 
         protected override void Seed(XHZNL.EFDynamicDatabaseBuilding.MasterEntity.MasterDBContext context)

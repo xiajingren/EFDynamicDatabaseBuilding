@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace XHZNL.EFDynamicDatabaseBuilding.BusinessEntity
 {
 
-    [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
+    //[DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]//使用mysql时需要这个
     internal class BusinessDBContext : DbContext
     {
         public BusinessDBContext() : base("name=BusinessDB")
