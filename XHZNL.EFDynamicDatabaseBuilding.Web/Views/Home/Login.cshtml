@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "企业登录";
+}
+
+<div class="container-fluid body-content">
+    <div class="row clearfix text-center">
+        <h3>企业登录</h3>
+        <div class="panel panel-default col-md-6 col-md-offset-3">
+            <form class="form-horizontal" role="form" style="margin:50px">
+                <div class="form-group">
+                    <div class="col-md-6 col-md-offset-3">
+                        <input type="text" class="form-control" name="username" id="username" placeholder="账号">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6 col-md-offset-3">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="密码">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-6 col-md-offset-3">
+                        <button type="button" id="login_btn" onclick="login()" class="btn btn-primary btn-block" data-loading-text="登录中..." autocomplete="off" style="margin-bottom:10px">登 录</button>
+                        <a href="/Home/Register">企业注册(注册时创建该企业数据库)</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    //登录
+    function login() {
+        $("#login_btn").button('loading');
+
+        $.post("/Home/Login", { username: $("#username").val(), password: $("#password").val(), }, function (d) {
+            if (d) {
+                location.href = "/Home/Index";
+            } else {
+                alert("登录失败!")
+            }
+            $("#login_btn").button('reset');
+        });
+    }
+</script>
+

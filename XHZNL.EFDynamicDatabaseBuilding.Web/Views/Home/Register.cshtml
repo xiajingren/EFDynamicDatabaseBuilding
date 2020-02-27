@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "企业注册";
+}
+
+<div class="container-fluid body-content">
+    <div class="row clearfix text-center">
+        <h3>企业注册</h3>
+        <div class="panel panel-default col-md-6 col-md-offset-3">
+            <form class="form-horizontal" role="form" style="margin:50px">
+                <div class="form-group">
+                    <div class="col-md-6 col-md-offset-3">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="企业名称">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6 col-md-offset-3">
+                        <input type="text" class="form-control" name="username" id="username" placeholder="账号">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-6 col-md-offset-3">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="密码">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-6 col-md-offset-3">
+                        <button type="button" id="register_btn" onclick="register()" class="btn btn-primary btn-block" data-loading-text="注册中..." autocomplete="off" style="margin-bottom:10px">注 册</button>
+                        <a href="/Home/Login">企业登录</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    //注册
+    function register() {
+        $("#register_btn").button('loading');
+
+        $.post("/Home/Register", { name: $("#name").val(), username: $("#username").val(), password: $("#password").val(), }, function (d) {
+            if (d) {
+                alert("注册成功!请前往登录...")
+            } else {
+                alert("注册失败!")
+            }
+            $("#register_btn").button('reset');
+        });
+    }
+</script>
+

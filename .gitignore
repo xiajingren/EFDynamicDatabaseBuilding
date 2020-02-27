@@ -3,3 +3,12 @@
 ################################################################################
 
 /.vs
+/packages
+/XHZNL.EFDynamicDatabaseBuilding.BusinessEntity/bin/Debug
+/XHZNL.EFDynamicDatabaseBuilding.BusinessEntity/obj/Debug
+/XHZNL.EFDynamicDatabaseBuilding.Common/bin/Debug
+/XHZNL.EFDynamicDatabaseBuilding.Common/obj/Debug
+/XHZNL.EFDynamicDatabaseBuilding.MasterEntity/bin/Debug
+/XHZNL.EFDynamicDatabaseBuilding.MasterEntity/obj/Debug
+/XHZNL.EFDynamicDatabaseBuilding.Web/bin
+/XHZNL.EFDynamicDatabaseBuilding.Web/obj/Debug

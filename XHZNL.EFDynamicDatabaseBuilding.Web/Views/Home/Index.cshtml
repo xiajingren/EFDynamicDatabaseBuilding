@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "员工管理";
+}
+
+<div class="row" style="margin:0;">
+    <div class="col-md-6 col-md-offset-3 text-center">
+        <h2>当前企业:@ViewBag.Name</h2>
+        <h3>当前数据库:@ViewBag.DBName</h3>
+        <div style="clear:both"></div>
+        <hr />
+        <div id="staff" class="col-md-12">
+
+        </div>
+        <div style="clear:both"></div>
+        <hr />
+        <div id="staff" class="col-md-4 col-md-offset-4">
+            <input type="text" class="form-control" name="staffname" id="staffname" placeholder="员工姓名" style="margin:10px 0">
+            <button type="button" onclick="addstaff()" class="btn btn-primary btn-block" style="margin-bottom:10px;">添加员工</button>
+            <a href="/Home/Login">退出登录</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        getstaff();
+    });
+
+    //获取员工
+    function getstaff() {
+        $("#staff").html("");
+        $.get("/Home/GetStaff", function (d) {
+            for (var i in d) {
+                $("#staff").append("<h4>" + d[i].Name + "</h4>");
+            }
+        });
+    }
+
+    ///添加员工
+    function addstaff() {
+        $.post("/Home/AddStaff", { name: $("#staffname").val() }, function (d) {
+            if (d) {
+                getstaff();
+            } else {
+                alert("添加失败!");
+            }
+        });
+    }
+</script>
+
