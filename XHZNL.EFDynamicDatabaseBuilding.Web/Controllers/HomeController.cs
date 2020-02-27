@@ -24,6 +24,16 @@ namespace XHZNL.EFDynamicDatabaseBuilding.Web.Controllers
             return View();
         }
 
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        public ActionResult Register()
+        {
+            return View();
+        }
+
         /// <summary>
         /// 获取员工
         /// </summary>
@@ -44,16 +54,6 @@ namespace XHZNL.EFDynamicDatabaseBuilding.Web.Controllers
         {
             var r = StaffService.Instance.Add(new Staff() { Name = name });
             return Json(r);
-        }
-
-        public ActionResult Login()
-        {
-            return View();
-        }
-
-        public ActionResult Register()
-        {
-            return View();
         }
 
         /// <summary>
