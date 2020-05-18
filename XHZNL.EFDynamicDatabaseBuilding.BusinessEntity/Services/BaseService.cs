@@ -26,6 +26,7 @@ namespace XHZNL.EFDynamicDatabaseBuilding.BusinessEntity.Services
 
                 var context = new BusinessDBContext(connectionString);
 
+                //数据库是否存在 不存在则创建
                 if (!context.Database.Exists())
                 {
                     context.Database.Create();
@@ -34,6 +35,7 @@ namespace XHZNL.EFDynamicDatabaseBuilding.BusinessEntity.Services
                     dbInitializer.InitializeDatabase(context);
                 }
 
+                //数据库接口是否和模型一致 不一致则更新
                 if (!context.Database.CompatibleWithModel(false))
                 {
                     var dbInitializer = new MigrateDatabaseToLatestVersion<BusinessDBContext, Migrations.Configuration>(true);
